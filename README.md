@@ -1,5 +1,7 @@
 # Gradientzoo Python bindings
 
+[![Documentation Status](https://readthedocs.org/projects/python-gradientzoo/badge/?version=latest)](http://python-gradientzoo.readthedocs.org/en/latest/?badge=latest)
+
 ## Installation
 
 You don't need this source code unless you want to modify the
