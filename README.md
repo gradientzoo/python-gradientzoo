@@ -2,8 +2,10 @@
 
 [![Documentation Status](https://readthedocs.org/projects/python-gradientzoo/badge/?version=latest)](http://python-gradientzoo.readthedocs.org/en/latest/?badge=latest)
 
-Loading a pre-trained neural network is easy with Gradientzoo. Here's how easy
-it is to load a model with Tensorflow (full example below):
+This is a Python library for Gradientzoo's API - Version and share your trained
+neural network models.  Loading a pre-trained neural network is easy with
+Gradientzoo. Here's how easy it is to load a model with Tensorflow (full
+example below):
 
 ```python
 import tensorflow as tf
