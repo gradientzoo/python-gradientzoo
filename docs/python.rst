@@ -1,5 +1,5 @@
-Python Client
-=============
+Using plain old Python with Gradientzoo
+=======================================
 
 This doc will demonstrate how to save and load your trained neural network in
 Python.  This is useful either for writing your own library integration, or for

@@ -1,5 +1,5 @@
-Python Client
-=============
+Using Lasagne with Gradientzoo
+==============================
 
 This doc will demonstrate how to save and load your trained neural network in
 Python using Lasagne.
