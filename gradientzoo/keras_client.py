@@ -76,7 +76,7 @@ if has_keras:
 
             return file_model
 
-        def save(self, model, metadata=None, filename='model.h5', dir=None):
+        def save(self, model, filename='model.h5', metadata=None, dir=None):
             # Figure out the path to save the file to temporarily
             if not dir:
                 dir = self.default_dir

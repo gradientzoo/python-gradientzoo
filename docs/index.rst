@@ -9,8 +9,11 @@ Welcome to Gradientzoo's documentation!
 Contents:
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
 
+    keras
+    tensorflow
+    lasagne
     python
 
 
