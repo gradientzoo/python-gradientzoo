@@ -1,5 +1,5 @@
 '''This example demonstrates the use of Convolution1D for text classification.
-Gets to 0.88 test accuracy after 2 epochs. 
+Gets to 0.88 test accuracy after 2 epochs.
 90s/epoch on Intel i5 2.4Ghz CPU.
 10s/epoch on Tesla K40 GPU.
 '''
@@ -16,7 +16,10 @@ from keras.layers.convolutional import Convolution1D
 from keras.datasets import imdb
 from keras import backend as K
 
-from gradientzoo.keras_client import KerasGradientzoo, NotFoundError
+###
+# GRADIENTZOO STEP 1: Import Gradientzoo library, instantiate client
+from gradientzoo import KerasGradientzoo, NotFoundError
+###
 
 zoo = KerasGradientzoo('ericflo/keras_imdb_cnn')
 
@@ -81,12 +84,17 @@ model.compile(loss='binary_crossentropy',
               optimizer='adam',
               metrics=['accuracy'])
 
+###
+# GRADIENTZOO STEP 2: Load latest weights from Gradientzoo
 try:
     zoo.load(model)
     print('Found and loaded latest model weights from gradientzoo')
 except NotFoundError:
     print('No existing model weights found, training for the first time')
+###
 
+###
+# GRADIENTZOO STEP 3: Save model weights to Gradientzoo after each epoch
 zoo_callback = zoo.make_callback(model, after_epochs=1)
 
 model.fit(X_train, y_train,
@@ -94,3 +102,4 @@ model.fit(X_train, y_train,
           nb_epoch=nb_epoch,
           validation_data=(X_test, y_test),
           callbacks=[zoo_callback])
+###

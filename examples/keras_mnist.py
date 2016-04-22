@@ -19,7 +19,7 @@ from keras.utils import np_utils
 
 ###
 # GRADIENTZOO STEP 1: Import Gradientzoo library, instantiate client
-from gradientzoo.keras_client import KerasGradientzoo, NotFoundError
+from gradientzoo import KerasGradientzoo, NotFoundError
 
 zoo = KerasGradientzoo('ericflo/mnist')
 ###

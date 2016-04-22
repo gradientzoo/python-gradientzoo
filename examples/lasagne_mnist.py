@@ -24,7 +24,7 @@ import lasagne
 
 ###
 # GRADIENTZOO STEP 1: Import Gradientzoo library, instantiate client
-from gradientzoo.lasagne_client import LasagneGradientzoo, NotFoundError
+from gradientzoo import LasagneGradientzoo, NotFoundError
 
 zoo = LasagneGradientzoo('ericflo/mnist')
 ###

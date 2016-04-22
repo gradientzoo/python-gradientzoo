@@ -9,7 +9,7 @@ example below):
 
 ```python
 import tensorflow as tf
-from gradientzoo.tensorflow_client import TensorflowGradientzoo
+from gradientzoo import TensorflowGradientzoo
 
 # (build MNIST graph here)
 
@@ -67,7 +67,7 @@ If you are having issues, please let us know at support@gradientzoo.com
 ```python
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data, mnist
-from gradientzoo.tensorflow_client import TensorflowGradientzoo
+from gradientzoo import TensorflowGradientzoo
 
 learning_rate = 0.01
 batch_size = 100

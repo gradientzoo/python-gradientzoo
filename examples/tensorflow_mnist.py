@@ -29,7 +29,7 @@ from tensorflow.examples.tutorials.mnist import mnist
 
 ###
 # GRADIENTZOO STEP 1: Import Gradientzoo library, instantiate client
-from gradientzoo.tensorflow_client import TensorflowGradientzoo, NotFoundError
+from gradientzoo import TensorflowGradientzoo, NotFoundError
 
 zoo = TensorflowGradientzoo('ericflo/mnist')
 ###
