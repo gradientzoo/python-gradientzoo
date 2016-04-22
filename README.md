@@ -30,11 +30,11 @@ You don't need this source code unless you want to modify the
 package. If you just want to use the Gradientzoo Python bindings, you
 should run:
 
-  pip install --upgrade gradientzoo
+    pip install --upgrade gradientzoo
 
 or
 
-  easy_install --upgrade gradientzoo
+    easy_install --upgrade gradientzoo
 
 See http://www.pip-installer.org/en/latest/index.html for instructions
 on installing pip. If you are on a system with easy_install but not
