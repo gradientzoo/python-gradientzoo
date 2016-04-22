@@ -36,13 +36,12 @@ class Gradientzoo(object):
         if not username:
             raise ValueError(
                 'Must specify the Gradientzoo model e.g. "ericflo/mnist_cnn"')
-        self.username, self.slug = self._parse_username_slug(username, slug)
-        self.auth_token_id = auth_token_id
+
         self.api_base = api_base
-        self.default_headers = {
-            'X-Gradientzoo-Client-Name': 'python-gradientzoo',
-            'X-Gradientzoo-Framework-Version': self.framework_version,
-        }
+        self.session = requests.Session()
+        self.session.headers.update(self.default_headers())
+        self.auth_token_id = auth_token_id
+        self.username, self.slug = self._parse_username_slug(username, slug)
         self.default_dir = default_dir
         try:
             os.makedirs(default_dir)
@@ -50,6 +49,25 @@ class Gradientzoo(object):
             raise
         except:
             pass
+
+    def default_headers(self):
+        return {
+            'X-Gradientzoo-Client-Name': 'python-gradientzoo',
+            'X-Gradientzoo-Framework-Version': self.framework_version,
+        }
+
+    @property
+    def auth_token_id(self):
+        return self.session.headers.get('X-Auth-Token-Id')
+
+    @auth_token_id.setter
+    def auth_token_id(self, value):
+        if not value:
+            try:
+                del self.session.headers['X-Auth-Token-Id']
+            except KeyError:
+                pass
+        self.session.headers.update({'X-Auth-Token-Id': value})
 
     def _parse_username_slug(self, username, slug):
         un, _, sl = username.partition('/')
@@ -66,19 +84,11 @@ class Gradientzoo(object):
 
     def post(self, *args, **kwargs):
         args_list = [self.full_url(args[0])] + list(args[1:])
-        with requests.Session() as s:
-            s.headers.update(self.default_headers)
-            if self.auth_token_id:
-                s.headers.update({'X-Auth-Token-Id': self.auth_token_id})
-            return s.post(*args_list, **kwargs)
+        return self.session.post(*args_list, **kwargs)
 
     def get(self, *args, **kwargs):
         args_list = [self.full_url(args[0])] + list(args[1:])
-        with requests.Session() as s:
-            s.headers.update(self.default_headers)
-            if self.auth_token_id:
-                s.headers.update({'X-Auth-Token-Id': self.auth_token_id})
-            return s.get(*args_list, **kwargs)
+        return self.session.get(*args_list, **kwargs)
 
     def _file_path(self, filename=None, id=None):
         if id:
