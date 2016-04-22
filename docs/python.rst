@@ -32,13 +32,18 @@ service.
     zoo = Gradientzoo('exampleuser/modelslug', api_base='https://api2.gradientzoo.com')
 
 
-Loading a Model
----------------
+.. rubric:: Examples
+
+The next few examples will assume ``zoo``, an instantiated Gradientzoo client:
 
 .. code:: python
 
     from gradientzoo import Gradientzoo
     zoo = Gradientzoo('exampleuser/modelslug')
+
+
+Loading a Model
+---------------
 
 If you want to load a model from the remote cloud, that can be done by calling
 the ``download_file`` method on the client.
@@ -64,11 +69,6 @@ the ``download_file`` method on the client.
 Saving a Model
 --------------
 
-.. code:: python
-
-    from gradientzoo import Gradientzoo
-    zoo = Gradientzoo('exampleuser/modelslug')
-
 If you want to save your moel to the remote cloud, simply call the
 ``upload_file`` method on the client.
 
@@ -78,9 +78,8 @@ If you want to save your moel to the remote cloud, simply call the
 
 .. code:: python
 
-    filename = '/tmp/model.npz'
-
     # Example of how to upload a file, first by saving it out from your library
+    filename = '/tmp/model.npz'
     numpy.savez(filename, your_model_tensor)
 
     # Then sending it up to gradientzoo
