@@ -1,4 +1,4 @@
-from gradientzoo.version import __version__
+__version__ = '0.8.2'
 
 
 def __exported_functionality__():

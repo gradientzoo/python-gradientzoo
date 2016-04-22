@@ -1,3 +1,23 @@
+# Standard
+*.pyc
+*.egg
+*.class
+.python-version
+/MANIFEST
+/dist
+/.eggs
+/build
+gradientzoo.egg-info
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+htmlcov/
+
+# Custom
 data/*
 examples/env
 bootstrap.sh
@@ -5,4 +25,3 @@ t10k-images-idx3-ubyte.gz
 t10k-labels-idx1-ubyte.gz
 train-images-idx3-ubyte.gz
 train-labels-idx1-ubyte.gz
-*.pyc
