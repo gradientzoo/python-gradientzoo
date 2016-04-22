@@ -2,10 +2,9 @@
 
 [![Documentation Status](https://readthedocs.org/projects/python-gradientzoo/badge/?version=latest)](http://python-gradientzoo.readthedocs.org/en/latest/?badge=latest)
 
-This is a Python library for Gradientzoo's API - Version and share your trained
-neural network models.  Loading a pre-trained neural network is easy with
-Gradientzoo. Here's how easy it is to load a model with Tensorflow (full
-example below):
+This is a Python library for Gradientzoo's API.  Loading a pre-trained neural
+network is easy with Gradientzoo. Here's how easy it is to load a model with
+Tensorflow (full example below):
 
 ```python
 import tensorflow as tf
@@ -18,6 +17,22 @@ with tf.Session() as sess:
     TensorflowGradientzoo('ericflo/mnist').load(sess)
 
     # Graph is now ready to use!
+```
+
+Saving models is similarly straightforward:
+
+```python
+import tensorflow as tf
+from gradientzoo import TensorflowGradientzoo
+
+# (build MNIST graph here)
+
+with tf.Session() as sess:
+    for epoch in xrange(6):
+        # Train the model...
+
+        # Save the updated weights out to Gradientzoo
+        TensorflowGradientzoo('ericflo/mnist').save(sess)
 ```
 
 ## Features

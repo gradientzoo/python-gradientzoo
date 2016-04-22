@@ -24,6 +24,23 @@ example below):
         # Graph is now ready to use!
 
 
+Saving models is similarly straightforward:
+
+.. code:: python
+
+    import tensorflow as tf
+    from gradientzoo import TensorflowGradientzoo
+
+    # (build MNIST graph here)
+
+    with tf.Session() as sess:
+        for epoch in xrange(6):
+            # Train the model...
+
+            # Save the updated weights out to Gradientzoo
+            TensorflowGradientzoo('ericflo/mnist').save(sess)
+
+
 Features
 --------
 
