@@ -9,7 +9,7 @@ import requests
 
 __all__ = ['StatusCodeError', 'NotFoundError', 'Gradientzoo']
 
-DEFAULT_DIR = os.path.realpath(os.path.expanduser('/tmp/gradientzoo/buffer'))
+DEFAULT_DIR = os.path.realpath(os.path.expanduser('~/.gradientzoo/cache'))
 API_BASE = 'https://api.gradientzoo.com'
 
 
@@ -30,7 +30,7 @@ class Gradientzoo(object):
     framework = 'python'
     framework_version = gradientzoo_version
 
-    def __init__(self, username=None, slug=None, api_base=API_BASE,
+    def __init__(self, username=None, model_slug=None, api_base=API_BASE,
                  auth_token_id=os.environ.get('GRADIENTZOO_AUTH_TOKEN_ID'),
                  default_dir=DEFAULT_DIR):
         if not username:
@@ -107,7 +107,7 @@ class Gradientzoo(object):
                          data={'metadata': json.dumps(metadata)},
                          files={'file': f})
 
-    def download_file(self, filename=None, id=None, dir=None, chunk_size=1024):
+    def download_file(self, filename, id=None, dir=None, chunk_size=1024):
         # If they didn't specify the dir, use the default one and make sure it
         # actually exists
         if not dir:

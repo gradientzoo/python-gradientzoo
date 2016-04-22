@@ -23,7 +23,7 @@ if has_lasagne:
 
         def load(self, network, filename='model.npz', id=None, dir=None):
             # Download the file into the directory
-            filepath, f = self.download_file(filename, id, dir=dir)
+            filepath, file_model = self.download_file(filename, id, dir=dir)
 
             # Load the model weights and process them
             with np.load(filepath) as data_file:
@@ -33,7 +33,7 @@ if has_lasagne:
             # Pass them into lasagne
             lasagne.layers.set_all_param_values(network, param_values)
 
-            return f
+            return file_model
 
         def save(self, network, metadata=None, filename='model.npz', dir=None):
             # Figure out the path to save the file to temporarily

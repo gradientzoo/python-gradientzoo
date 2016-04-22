@@ -32,12 +32,12 @@ if has_tensorflow:
 
         def load(self, session, filename='model.ckpt', id=None, dir=None):
             # Download the file into the directory
-            filepath, f = self.download_file(filename, id, dir=dir)
+            filepath, file_model = self.download_file(filename, id, dir=dir)
 
             # Actually load the model weights
             self.saver.restore(session, filepath)
 
-            return f
+            return file_model
 
         def save(self, session, metadata=None, filename='model.ckpt', dir=None):
             # Figure out the path to save the file to temporarily

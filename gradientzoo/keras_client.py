@@ -69,12 +69,12 @@ if has_keras:
 
         def load(self, model, filename='model.h5', id=None, dir=None):
             # Download the file into the directory
-            filepath, f = self.download_file(filename, id, dir=dir)
+            filepath, file_model = self.download_file(filename, id, dir=dir)
 
             # Actually load the model weights
             model.load_weights(filepath)
 
-            return f
+            return file_model
 
         def save(self, model, metadata=None, filename='model.h5', dir=None):
             # Figure out the path to save the file to temporarily
