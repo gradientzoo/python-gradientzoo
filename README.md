@@ -53,8 +53,8 @@ e.g. https://www.gradientzoo.com/ericflo/mnist
 
 ## Contribute
 
-- Issue Tracker: github.com/gradientzoo/python-gradientzoo/issues
-- Source Code: github.com/gradientzoo/python-gradientzoo
+- Issue Tracker: https://github.com/gradientzoo/python-gradientzoo/issues
+- Source Code: https://github.com/gradientzoo/python-gradientzoo
 
 ## Support
 
