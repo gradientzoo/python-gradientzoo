@@ -17,6 +17,9 @@ nosetests.xml
 coverage.xml
 htmlcov/
 
+# Docs
+docs/_build
+
 # Custom
 data/*
 examples/env
