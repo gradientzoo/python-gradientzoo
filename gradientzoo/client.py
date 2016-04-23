@@ -41,7 +41,8 @@ class Gradientzoo(object):
         self.session = requests.Session()
         self.session.headers.update(self.default_headers())
         self.auth_token_id = auth_token_id
-        self.username, self.slug = self._parse_username_slug(username, slug)
+        self.username, self.slug = self._parse_username_slug(username,
+                                                             model_slug)
         self.default_dir = default_dir
         try:
             os.makedirs(default_dir)
