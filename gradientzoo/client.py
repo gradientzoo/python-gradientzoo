@@ -132,21 +132,28 @@ class Gradientzoo(object):
 
         data = r.json()
 
-        # Download the content from the CDN url
-        r = requests.get(data['url'], stream=True)
-        if r.status_code != 200:
-            if r.status_code == 404:
-                raise NotFoundError(
-                    'Could not find CDN file {}'.format(filename))
-            raise StatusCodeError(r.status_code,
-                                  'Got bad CDN status code {}'.format(r))
+        end_filepath = os.path.join(dir, data['file']['id'] + '_' + filename)
+        tmp_filepath = end_filepath + '.tmp'
 
-        # Read it all to the file in the directory specified
-        filepath = os.path.join(dir, filename)
-        with open(filepath, 'wb') as f:
-            for chunk in r.iter_content(chunk_size):
-                f.write(chunk)
-            f.flush()
+        # If we don't have a copy downloaded
+        if not os.path.exists(end_filepath):
+            # Download the content from the CDN url
+            r = requests.get(data['url'], stream=True)
+            if r.status_code != 200:
+                if r.status_code == 404:
+                    raise NotFoundError(
+                        'Could not find CDN file {}'.format(filename))
+                raise StatusCodeError(r.status_code,
+                                      'Got bad CDN status code {}'.format(r))
+
+            # Read it all to the file in the directory specified
+            with open(tmp_filepath, 'wb') as f:
+                for chunk in r.iter_content(chunk_size):
+                    f.write(chunk)
+                f.flush()
+
+            # Rename the file to the proper destination atomically
+            os.rename(tmp_filepath, end_filepath)
 
         # Return the file path
-        return filepath, data.get('file', {})
+        return end_filepath, data.get('file', {})

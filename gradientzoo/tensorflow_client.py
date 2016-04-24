@@ -50,7 +50,11 @@ if has_tensorflow:
 
             # Upload the file
             with open(filepath, 'r') as f:
-                self.upload_file(filename, f, metadata)
+                data = self.upload_file(filename, f, metadata).json()
+
+            # Move the file to the correct spot in the cache atomically
+            os.rename(filepath,
+                      os.path.join(dir, data['file']['id'] + '_' + filename))
 else:
     class TensorflowGradientzoo(object):
         pass
