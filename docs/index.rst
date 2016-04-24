@@ -6,6 +6,8 @@
 Welcome to Gradientzoo's documentation!
 =======================================
 
+`Visit Gradientzoo.com`_
+
 Contents:
 
 .. toctree::
@@ -25,3 +27,5 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+
+.. _`Visit Gradientzoo.com`: https://www.gradientzoo.com
