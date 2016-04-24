@@ -2,8 +2,8 @@ Gradientzoo Python bindings
 ===========================
 
 .. image:: https://readthedocs.org/projects/python-gradientzoo/badge/?version=latest
-:target: http://python-gradientzoo.readthedocs.org/en/latest/?badge=latest
-:alt: Documentation Status
+    :target: http://python-gradientzoo.readthedocs.org/en/latest/?badge=latest
+    :alt: Documentation Status
 
 This is a Python library for Gradientzoo's API - Version and share your trained
 neural network models.  Loading a pre-trained neural network is easy with
